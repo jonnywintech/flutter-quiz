@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/content.dart';
+import 'package:quiz_app/start_screen.dart';
 import 'package:quiz_app/custom_container.dart';
 
 void main() {
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
               Color.fromARGB(255, 27, 92, 190),
               Color.fromARGB(255, 6, 160, 152),
             ],
-            child: Body(),
+            child: StartScreen(),
           ),
         ),
       ),

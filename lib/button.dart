@@ -5,13 +5,14 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
+    return OutlinedButton(
       onPressed: () {},
-      child: Text('Start Quiz'),
-      style: TextButton.styleFrom(
+      style: OutlinedButton.styleFrom(
         backgroundColor: Colors.amber,
         foregroundColor: Colors.white,
+        padding: EdgeInsets.fromLTRB(30, 20, 30, 20),
       ),
+      child: Text('Start Quiz'),
     );
   }
 }

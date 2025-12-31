@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/answer_button.dart';
-// import 'package:quiz_app/questions.dart';
+import 'package:quiz_app/questions.dart';
 
 class QuestionsScreen extends StatefulWidget {
-  const QuestionsScreen({super.key});
+  QuestionsScreen({super.key});
 
-  // final currentQuestion = question[0];
+  final currentQuestion = questions[0];
 
   @override
   State<QuestionsScreen> createState() => _QuestionsScreenState();
@@ -14,18 +14,28 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          'The questions...',
-          style: TextStyle(color: Colors.white, fontSize: 30),
-        ),
-        SizedBox(height: 30),
-        AnswerButton(answerText: 'Answer text 1', onTap: () {}),
-        AnswerButton(answerText: 'Answer text 2', onTap: () {}),
-        AnswerButton(answerText: 'Answer text 3', onTap: () {}),
-      ],
+    return Container(
+      margin: EdgeInsets.all(20),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Center(
+            child: Text(
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+              ),
+              widget.currentQuestion.text,
+            ),
+          ),
+          SizedBox(height: 30),
+          ...widget.currentQuestion.answers.map((item) {
+            return AnswerButton(answerText: item, onTap: () {});
+          }),
+        ],
+      ),
     );
   }
 }

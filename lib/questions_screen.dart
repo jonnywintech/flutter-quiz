@@ -15,7 +15,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(20),
+      margin: const EdgeInsets.all(20),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -31,7 +31,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
             ),
           ),
           SizedBox(height: 30),
-          ...widget.currentQuestion.answers.map((item) {
+          ...widget.currentQuestion.getShuffledAnswers().map((item) {
             return AnswerButton(answerText: item, onTap: () {});
           }),
         ],

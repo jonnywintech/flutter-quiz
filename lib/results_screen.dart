@@ -5,12 +5,14 @@ import 'package:quiz_app/questions_summary.dart';
 class RestultsScreen extends StatelessWidget {
   const RestultsScreen({
     super.key,
+    required this.resetScreen,
     required this.selectedAnswers,
     required this.activeScreen,
   });
 
   final List<String> selectedAnswers;
   final String activeScreen;
+  final void Function() resetScreen;
 
   List<Map<String, Object>> getSummaryData() {
     final List<Map<String, Object>> summary = [];
@@ -25,8 +27,6 @@ class RestultsScreen extends StatelessWidget {
     }
     return summary;
   }
-
-  void resetQuiz() {}
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +49,20 @@ class RestultsScreen extends StatelessWidget {
             SizedBox(height: 30),
             QuestionSummary(getSummaryData()),
             SizedBox(height: 30),
-            TextButton(onPressed: resetQuiz, child: Text('Restart quiz')),
+            OutlinedButton.icon(
+              onPressed: resetScreen,
+              style: OutlinedButton.styleFrom(
+                backgroundColor: Colors.amber,
+                foregroundColor: Colors.white,
+                padding: EdgeInsets.fromLTRB(30, 20, 30, 20),
+              ),
+
+              label: Text('Restart Quiz'),
+              icon: Icon(
+                Icons.restart_alt,
+                size: 25,
+              ),
+            ),
           ],
         ),
       ),

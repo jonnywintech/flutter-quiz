@@ -45,6 +45,12 @@ class RestultsScreen extends StatelessWidget {
           children: [
             Text(
               'You answerred $numOfCorrectAnswers out of $numTotalQuestions questions correctly',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 24,
+                color: Colors.white,
+              ),
             ),
             SizedBox(height: 30),
             QuestionSummary(getSummaryData()),
